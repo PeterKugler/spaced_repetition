@@ -1,0 +1,34 @@
+Pet Projekt: Spaced Repetition
+
+cél: idegen nyelv, szakmai szavak tanulásánál rendszeres ismétlés
+
+
+módszer: a felhasználó kérhet adott darabszámú kártyát, és mindig a legrégebben ismételt,
+illetve a legkevésbé tudott kártyákat adja be a rendszer
+a felhasználó dönti el, hogy mennyire jól tudta, 6-os skála: pontozás megfelelően
+
+adatszerkezet:
+csv, adatmezők
+
+szó(magyarul), szó, idegen nyelvi, dátum (utolsó ismétlésé), pontszám (utolsó), pontszám összes
+
+menu/main.py
+functions.py
+
+minden menüponthoz kellő, meg a file importálása
+
+megjelentés:
+
+Menürendszer:
+- Teljes adatbázis kiiratása
+- kártya létrehozás
+- kártya törlés
+- kártya módosítás
+- Gyakorolni szeretnék -> hány kártyát kérsz?
+visszaad x elemet listában, a felhasználó értékelése alapján módosítja a pontszámokat a listában, timestampet
+a végén visszaírja file-ba az eredményt
+
+extra ötletek:
+backup, file új névvel
+
+

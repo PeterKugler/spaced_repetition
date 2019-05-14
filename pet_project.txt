@@ -20,11 +20,11 @@ minden menüponthoz kellő, meg a file importálása
 megjelentés:
 
 Menürendszer:
-- Teljes adatbázis kiiratása
-- kártya létrehozás
-- kártya törlés
-- kártya módosítás
-- Gyakorolni szeretnék -> hány kártyát kérsz?
+- Teljes adatbázis kiiratása - (1) Look database
+- kártya létrehozás     (2)  Create card
+- kártya törlés     (3) Delete card
+- kártya módosítás      (4) Modify card
+- Gyakorolni szeretnék -> hány kártyát kérsz?  (5) I want to practice (--> user_input: how many cards would you like?)
 visszaad x elemet listában, a felhasználó értékelése alapján módosítja a pontszámokat a listában, timestampet
 a végén visszaírja file-ba az eredményt
 

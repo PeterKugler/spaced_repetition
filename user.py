@@ -63,3 +63,10 @@ def print_table(table, title_list):
         for i in range(len(list_options)):
             print(f'\t\t({i+1}) {list_options[i]}')
         print(f'\t\t(0) {exit_message}')
+def get_inputs(list_labels, title):
+    inputs = []
+    print(f"{title}")
+    for item in list_labels:
+        user_input = input(f"{item}")
+        inputs.append(user_input)
+    return inputs

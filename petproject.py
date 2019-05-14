@@ -36,3 +36,5 @@ def generate_random(table):
             continue
 
 # CRUD
+def add_word(table):
+    

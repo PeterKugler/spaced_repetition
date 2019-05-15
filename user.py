@@ -42,25 +42,34 @@ def print_table(table, title_list):
     right_slash = "/"
     left_slash = "\\"
     separator = "||"
+
     longest_titles = len_of_columns(new_table)
     separator_line = []
+
     for i in longest_titles:
-        separator.append(i*dash_chr+separator)
-        joint_separator_line = "".join(separator_line)
-        list_separator_line = separator + joint_separator_line
-        last_line = left_slash + (len(joint_separator_line)-1)*dash_chr+right_slash
-        first_line = right_slash + (len(joint_separator_line)-1)*dash_chr+left_slash
+        separator_line.append(i*dash_chr+separator)
+
+    joint_separator_line = "".join(separator_line)
+    list_separator_line = separator + joint_separator_line
+    last_line = left_slash + (len(joint_separator_line)-1)*dash_chr+right_slash
+    first_line = right_slash + (len(joint_separator_line)-1)*dash_chr+left_slash
+    print(first_line)
+
     for lists in table:
         if lists == table[0]:
             pass
         else:
             print(f"\n{list_separator_line}")
+        print(end=separator)
         print(separator, end="")
+
     for enum, item in enumerate(lists):
         print(item.center(longest_titles[enum]), end=separator)
-        print("")
-        print(last_line)
-    return table, title_list
+
+    print("")
+    print(last_line)
+    #return table, title_list
+
 
 def print_result(result, label):
     if type(result) == list:

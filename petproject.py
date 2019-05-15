@@ -61,7 +61,7 @@ def create_card(table):
 def remove(table):
     id_to_remove = input("Enter ID of word to remove: ")
     for row in table:
-        if id_to_remove in table:
+        if id_to_remove in row:
             table.remove(row)
     writer = export_file("english.csv", table)
     return table
@@ -69,9 +69,13 @@ def remove(table):
 
 def modify(table):
     list_labels = ["word in Hungarian ", "Word in foreign language "]
-    id_to_update = input("Enter ID of word to udate ")
+    id_to_update = input("Enter ID of word to update ")
     for row in table:
-        if id_to_update == row[0]:
-            row = [id_to_update] + user.get_inputs(list_labels, "Changing from/to") + row[-3:-1]
+        if id_to_update in row:
+            table.remove(row)
+            inputs = user.get_inputs(list_labels, "Changing from/to")
+            row[1] = inputs[0]
+            row[2] = inputs[1]
+            table.append(row)
     writer = export_file("english.csv", table)
     return table

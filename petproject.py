@@ -37,10 +37,22 @@ def generate_random(table):
             continue
 
 # CRUD
-def add_word(table):
-    list_labels = ["word in foreign language", "word in Hungarian", "date of first practice"]
+def create_card(table):
+    list_labels = ["word in foreign language", "word in Hungarian"]
     title = "add word(s) to list"
+    last_point = 0
+    sum_of_points = 0
     inputs = user.get_inputs(list_labels, title)
     randomised_key = generate_random(table)
     inputs.insert(0, str(randomised_key))
-    #todo: append list with points. Table needed for sequence
+    inputs.append(str(last_point), str(sum_of_points))  #todo: append the list of values with time as well
+    table.append(inputs)
+    #todo: write the updated table to file
+
+
+def remove(table):
+    id_to_remove = input("Type ID of word to remove: ")
+    for row in table:
+        if id_to_remove in table:
+            table.remove(row)
+    #todo: write the updated table to file

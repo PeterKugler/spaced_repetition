@@ -50,16 +50,17 @@ def print_table(table, title_list):
         list_separator_line = separator + joint_separator_line
         last_line = left_slash + (len(joint_separator_line)-1)*dash_chr+right_slash
         first_line = right_slash + (len(joint_separator_line)-1)*dash_chr+left_slash
-    #for lists in table:
-     #   if lists == table[0]:
-      #      pass
-       # else:
-        #    print(f"\n{list_separator_line}")
-        p#rint(separator, end="")
-####????????????WTFgoeshere
+    for lists in table:
+        if lists == table[0]:
+            pass
+        else:
+            print(f"\n{list_separator_line}")
+        print(separator, end="")
+    for enum, item in enumerate(lists):
+        print(item.center(longest_titles[enum]), end=separator)
+        print("")
+        print(last_line)
     return table, title_list
-
-
 
 
     def print_result(result, label):

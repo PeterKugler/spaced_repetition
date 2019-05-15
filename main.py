@@ -1,19 +1,21 @@
 import sys
 import user
+import petproject
+
 
 def choose():
-    input = get_user_input(["Please enter a number: "], "")
+    input = user.get_inputs(["Please enter a number: "], "")
     option = input[0]
     if option[0] == "1":
         look_database(table)
     elif option[0] == "2":
-        cards = create_card(card)
+        petproject.create_card(table)
     elif option[0] == "3":
-        table = remove(table, card[0])
+        petproject.remove(table)
     elif option[0] == "4":
-        table = modify(table, card[0])
+        petproject.modify(table)
     elif option == "5":
-        input = get_user_input(["How many cards woul you like? "], "")
+        user.get_iputs(["How many cards would you like? "], "")
     elif option == "0":
         sys.exit(0)
     else:
@@ -26,7 +28,7 @@ def handle_menu():
                 "Delete card",
                 "Edit card",
                 "I want to practice!"]
-    print_menu
+    user.print_menu("Main menu", options, "Exit program")
 
 
 def main():

@@ -41,7 +41,7 @@ def generate_random(table):
 
 
 def create_card(table):
-    list_labels = ["word in Hungarian", "word in foreign language"]
+    list_labels = ["word in Hungarian ", "word in foreign language "]
     title = "add word(s) to list"
     last_point = 0
     sum_of_points = 0
@@ -51,7 +51,8 @@ def create_card(table):
     current_datetime = datetime.datetime.today()
     cd_string = datetime.datetime.strftime(current_datetime, "%d/%m/%Y, %H:%M")
     inputs.append(cd_string)
-    inputs.append(str(last_point), str(sum_of_points))
+    inputs.append(str(last_point))
+    inputs.append(str(sum_of_points))
     table.append(inputs)
     writer = export_file("english.csv", table)
     return table
@@ -67,8 +68,8 @@ def remove(table):
 
 
 def modify(table):
-    list_labels = ["word in Hungarian", "Word in foreign language"]
-    id_to_update = input("Enter ID of word to udate")
+    list_labels = ["word in Hungarian ", "Word in foreign language "]
+    id_to_update = input("Enter ID of word to udate ")
     for row in table:
         if id_to_update == row[0]:
             row = [id_to_update] + user.get_inputs(list_labels, "Changing from/to") + row[-3:-1]

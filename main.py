@@ -3,13 +3,14 @@ import user
 import petproject
 
 table = petproject.import_file("english.csv")
+title_list = ["ID", "Hungarian word", "English word", "Last practiced", "Last point", "Summary of points"]
 
 
 def choose():
     input = user.get_inputs(["Please enter a number: "], "")
     option = input[0]
     if option[0] == "1":
-        user.print_table(table)
+        user.print_table(table, title_list)
     elif option[0] == "2":
         petproject.create_card(table)
     elif option[0] == "3":
@@ -17,7 +18,7 @@ def choose():
     elif option[0] == "4":
         petproject.modify(table)
     elif option == "5":
-        user.get_iputs(["How many cards would you like? "], "")
+        user.get_inputs(["How many cards would you like? "], "")
     elif option == "0":
         sys.exit(0)
     else:

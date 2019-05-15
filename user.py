@@ -62,7 +62,6 @@ def print_table(table, title_list):
         print(last_line)
     return table, title_list
 
-
 def print_result(result, label):
     if type(result) == list:
         print(label)

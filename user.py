@@ -50,23 +50,47 @@ def print_table(table, title_list):
         list_separator_line = separator + joint_separator_line
         last_line = left_slash + (len(joint_separator_line)-1)*dash_chr+right_slash
         first_line = right_slash + (len(joint_separator_line)-1)*dash_chr+left_slash
-    for lists in table:
-        if lists == table[0]:
-            pass
-        else:
-            print(f"\n{list_separator_line}")
-        print(separator, end="")
+    #for lists in table:
+     #   if lists == table[0]:
+      #      pass
+       # else:
+        #    print(f"\n{list_separator_line}")
+        p#rint(separator, end="")
+####????????????WTFgoeshere
     return table, title_list
+
+
+
+
+    def print_result(result, label):
+        if type(result) == list:
+            print(label)
+            print(result)
+            print("")
+        elif type(result) == dict:
+            print(label)
+            for key, value in result.items():
+                print(key, value)
+                print("")
+        else:
+            print(label)
+            print(result)
+            print("")
 
     def print_menu(title, list_options, exit_message):
         print(f'\t{title}:')
         for i in range(len(list_options)):
             print(f'\t\t({i+1}) {list_options[i]}')
         print(f'\t\t(0) {exit_message}')
-def get_inputs(list_labels, title):
-    inputs = []
-    print(f"{title}")
-    for item in list_labels:
-        user_input = input(f"{item}")
-        inputs.append(user_input)
-    return inputs
+
+    def get_inputs(list_labels, title):
+        inputs = []
+        print(f"{title}")
+        for item in list_labels:
+            user_input = input(f"{item}")
+            inputs.append(user_input)
+        return inputs
+
+
+def print_error_message(message):
+    print('Error: ' + message)

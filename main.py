@@ -1,4 +1,5 @@
 import sys
+import user
 
 def choose():
     input = get_user_input(["Please enter a number: "], "")
@@ -33,9 +34,9 @@ def main():
         handle_menu()
         try:
             choose()
-        except:
-            raise KeyError
-
+        except KeyError as err:
+            user.print_error_message(str(err))
+            
 
 if __name__ == "__main__":
     main()

@@ -62,7 +62,6 @@ def print_table(table, title_list):
         print(last_line)
     return table, title_list
 
-
     def print_result(result, label):
         if type(result) == list:
             print(label)
@@ -78,19 +77,21 @@ def print_table(table, title_list):
             print(result)
             print("")
 
-    def print_menu(title, list_options, exit_message):
-        print(f'\t{title}:')
-        for i in range(len(list_options)):
-            print(f'\t\t({i+1}) {list_options[i]}')
-        print(f'\t\t(0) {exit_message}')
 
-    def get_inputs(list_labels, title):
-        inputs = []
-        print(f"{title}")
-        for item in list_labels:
-            user_input = input(f"{item}")
-            inputs.append(user_input)
-        return inputs
+def print_menu(title, list_options, exit_message):
+    print(f'\t{title}:')
+    for i in range(len(list_options)):
+        print(f'\t\t({i+1}) {list_options[i]}')
+    print(f'\t\t(0) {exit_message}')
+
+
+def get_inputs(list_labels, title):
+    inputs = []
+    print(f"{title}")
+    for item in list_labels:
+        user_input = input(f"{item}")
+        inputs.append(user_input)
+    return inputs
 
 
 def print_error_message(message):

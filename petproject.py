@@ -1,5 +1,6 @@
 import random
 import user
+import datetime
 
 
 def import_file(file_name):
@@ -47,9 +48,13 @@ def create_card(table):
     inputs = user.get_inputs(list_labels, title)
     randomised_key = generate_random(table)
     inputs.insert(0, str(randomised_key))
-    inputs.append(str(last_point), str(sum_of_points))  # todo: append the list of values with time as well
+    current_datetime = datetime.datetime.today()
+    cd_string = datetime.datetime.strftime(current_datetime, "%d/%m/%Y, %H:%M")
+    inputs.append(cd_string)
+    inputs.append(str(last_point), str(sum_of_points))
     table.append(inputs)
-    # todo: write the updated table to file
+    writer = export_file("english.csv", table)
+    return table
 
 
 def remove(table):
@@ -57,7 +62,8 @@ def remove(table):
     for row in table:
         if id_to_remove in table:
             table.remove(row)
-    # todo: write the updated table to file
+    writer = export_file("english.csv", table)
+    return table
 
 
 def modify(table):
@@ -66,4 +72,5 @@ def modify(table):
     for row in table:
         if id_to_update == row[0]:
             row = [id_to_update] + user.get_inputs(list_labels, "Changing from/to") + row[-3:-1]
-    # todo: write the updated table to file
+    writer = export_file("english.csv", table)
+    return table

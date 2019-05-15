@@ -1,4 +1,5 @@
 import random
+import user
 
 
 def import_file(file_name):
@@ -36,3 +37,10 @@ def generate_random(table):
             continue
 
 # CRUD
+def add_word(table):
+    list_labels = ["word in foreign language", "word in Hungarian", "date of first practice"]
+    title = "add word(s) to list"
+    inputs = user.get_inputs(list_labels, title)
+    randomised_key = generate_random(table)
+    inputs.insert(0, str(randomised_key))
+    #todo: append list with points. Table needed for sequence

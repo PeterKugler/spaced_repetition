@@ -62,20 +62,21 @@ def print_table(table, title_list):
         print(last_line)
     return table, title_list
 
-    def print_result(result, label):
-        if type(result) == list:
-            print(label)
-            print(result)
+
+def print_result(result, label):
+    if type(result) == list:
+        print(label)
+        print(result)
+        print("")
+    elif type(result) == dict:
+        print(label)
+        for key, value in result.items():
+            print(key, value)
             print("")
-        elif type(result) == dict:
-            print(label)
-            for key, value in result.items():
-                print(key, value)
-                print("")
-        else:
-            print(label)
-            print(result)
-            print("")
+    else:
+        print(label)
+        print(result)
+        print("")
 
 
 def print_menu(title, list_options, exit_message):

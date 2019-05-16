@@ -9,6 +9,7 @@ def transform_table(table):
             if type(row[i]) == int:
                 row[i] = str(row[i])
     new_table = list(zip(*table))
+    print(new_table)
     return new_table
 
 
@@ -19,14 +20,19 @@ def len_of_table(new_table):
 
 def len_of_columns(new_table):
     length_of_items = []
+
     for lists in new_table:
         for item in lists:
             length_of_items.append(len(item))
+
     length_of_table = len_of_table(new_table)
     row_to_column_list = [length_of_items[x:x+length_of_table] for x in range(0, len(length_of_items), length_of_table)]
     longest_titles = []
+    
     for i in row_to_column_list:
         longest_titles.append(max(i))
+    print(longest_titles)
+    
     count = 0
     for i in longest_titles:
         design_width = 5
@@ -96,9 +102,9 @@ def print_menu(title, list_options, exit_message):
 
 def get_inputs(list_labels, title):
     inputs = []
-    print(f"{title}")
-    for item in list_labels:
-        user_input = input(f"{item}")
+    print(title)
+    for list_label in list_labels:
+        user_input = input(list_label)
         inputs.append(user_input)
     return inputs
 

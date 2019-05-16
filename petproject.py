@@ -1,6 +1,7 @@
 import random
 import user
 import datetime
+from operator import itemgetter
 
 
 def import_file(file_name):
@@ -36,8 +37,6 @@ def generate_random(table):
         else:
             generated = ''
             continue
-
-# CRUD
 
 
 def create_card(table):
@@ -92,3 +91,25 @@ def get_number_practice_cards():
     return number_to_practice
 
 
+def make_datetime_int(table):
+    DATETIME = 3
+    make_datetime = table.copy()
+    for word in make_datetime:
+        chars_to_replace = "/,: "
+        datetime_formatted = ""
+        for char in word[DATETIME]:
+            if char in chars_to_replace:
+                datetime_formatted += char.replace(char, "")
+            else:
+                datetime_formatted += char
+        make_datetime.remove(word)
+        word.remove(word[DATETIME])
+        word.insert(DATETIME, datetime_formatted)
+        make_datetime.append(word)
+    return print(make_datetime)
+
+
+def sort_practice_cards(table, number_of_cards):
+    sorting_for_practice.sort(key=itemgetter(4, 3, 5))
+        #sorting_for_practice = sorting_for_practice[:number_of_cards + 1]
+    return print(sorting_for_practice)

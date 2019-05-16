@@ -76,7 +76,7 @@ def print_table(table, title_list):
     print("")
     print(last_line)
     #return table, title_list
-'''
+
 
 
 def print_table(table, title_list):
@@ -89,6 +89,32 @@ def print_table(table, title_list):
     for row in table:
         row_details = "||---" + row[0] + "---||" + "||---" + row[1] + "---||" + "||---" + row[2] + "---||" + "||---" + row[3] + "---||" +"||---" + row[4] + "---||"
         print(row_details)        
+'''
+
+
+def print_table(table, title_list):
+    max_lengths = [len(title) for title in title_list]
+    for row in table:
+        for enum, actual_data in enumerate(row):
+            if len(str(actual_data)) > max_lengths[enum]:
+                max_lengths[enum] = len(str(actual_data))
+
+    sum_of_max_lengths = 0
+    for length in max_lengths:
+        sum_of_max_lengths += length
+    separator_string = "|" + "|".join(["-"*length for length in max_lengths]) + "|"
+    
+    print(f"/{'-'*(sum_of_max_lengths+len(title_list)-1)}\\")
+    print(end="|")
+    for enum, title in enumerate(title_list):
+        print(title.center(max_lengths[enum]), end="|")
+    for row in table:
+        print(f"\n{separator_string}")
+        print(end="|")
+        for enum, actual_data in enumerate(row):
+            print(str(actual_data).center(max_lengths[enum]), end = "|")
+
+    print(f"\n\\{'-'*(sum_of_max_lengths+len(title_list)-1)}/")
 
 
 def print_result(result, label):
@@ -172,3 +198,15 @@ def print_table(table, title_list):
 
     print(f"\n\\{'-'*(sum_of_max_lengths+len(title_list)-1)}/")
 '''
+
+
+def merge_tables(table, make_datetime):
+    merged_table = []
+    for row in table:
+        for line in make_datetime:
+            if row == line:
+                merged_table.append(line)
+            else:
+                merged_table.append(row)
+    return merged_table
+ 

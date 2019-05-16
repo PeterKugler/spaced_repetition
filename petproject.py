@@ -93,8 +93,8 @@ def get_number_practice_cards():
 
 def make_datetime_int(table):
     DATETIME = 3
-    make_datetime = table.copy()
-    for word in make_datetime:
+    make_datetime = []
+    for word in table:
         chars_to_replace = "/,: "
         datetime_formatted = ""
         for char in word[DATETIME]:
@@ -102,14 +102,13 @@ def make_datetime_int(table):
                 datetime_formatted += char.replace(char, "")
             else:
                 datetime_formatted += char
-        make_datetime.remove(word)
         word.remove(word[DATETIME])
         word.insert(DATETIME, datetime_formatted)
         make_datetime.append(word)
-    return print(make_datetime)
+    return make_datetime
 
 
 def sort_practice_cards(table, number_of_cards):
-    sorting_for_practice.sort(key=itemgetter(4, 3, 5))
-        #sorting_for_practice = sorting_for_practice[:number_of_cards + 1]
-    return print(sorting_for_practice)
+    table.sort(key=itemgetter(4, 3, 5))
+    table = table[:number_of_cards + 1]
+    return print(table)

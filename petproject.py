@@ -2,6 +2,7 @@ import random
 import user
 import datetime
 from operator import itemgetter
+import copy
 
 
 def import_file(file_name):
@@ -95,8 +96,9 @@ def get_number_practice_cards(table):
 
 def make_datetime_int(table):
     DATETIME = 3
+    table_copy = copy.deepcopy(table)
     make_datetime = []
-    for word in table:
+    for word in table_copy:
         chars_to_replace = "/,: "
         datetime_formatted = ""
         for char in word[DATETIME]:
@@ -119,16 +121,17 @@ def sort_practice_cards(make_datetime, number_of_cards):
     return make_datetime
 
 
-def get_foreign_word(make_datetime):
+def practice(make_datetime):
     DATETIME = 3
     updated_table = []
     for word in make_datetime:
-        answer = input(f"What is the the english word for {word[1]}?")
+        answer = input(f"What is the the english word for {word[1]}? ")
         if answer == word[2]:
             current_datetime = datetime.datetime.today()
             cd_string = datetime.datetime.strftime(current_datetime, "%d/%m/%Y, %H:%M")
             word.remove(word[DATETIME])
             word.insert(DATETIME, cd_string)
+            print("Answer is correct.")
         else:
             current_datetime = datetime.datetime.today()
             cd_string = datetime.datetime.strftime(current_datetime, "%d/%m/%Y, %H:%M")
@@ -143,10 +146,17 @@ def get_foreign_word(make_datetime):
         print("1 = Did I learn this word? - No recollection")
         rating = int(input("I see my performance as: "))
         word[4] = str(rating)
-        word[5] = int(word[5]) + rating
+        word[5] = str(int(word[5]) + rating)
         updated_table.append(word)
     return updated_table
 
 
-
-
+def merge_tables(table, make_datetime):
+    merged_table = []
+    for row in table:
+        for line in make_datetime:
+            if row == line:
+                merged_table.append(line)
+            else:
+                merged_table.append(row)
+    return merged_table

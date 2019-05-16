@@ -23,7 +23,7 @@ def choose():
         need_to_practice = petproject.sort_practice_cards(datetime_converted, number_of_cards)
         updated_table = petproject.practice(need_to_practice)
         merged_table = petproject.merge_tables(table, updated_table)
-        petproject.export_file("export_test.csv", merged_table)
+        petproject.export_file("english.csv", merged_table)
     elif option == "0":
         sys.exit(0)
     else:

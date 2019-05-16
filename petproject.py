@@ -155,7 +155,7 @@ def merge_tables(table, make_datetime):
     merged_table = []
     for row in table:
         for line in make_datetime:
-            if row == line:
+            if row[0] == line[0]:
                 merged_table.append(line)
             else:
                 merged_table.append(row)

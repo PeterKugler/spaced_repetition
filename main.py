@@ -18,7 +18,8 @@ def choose():
     elif option[0] == "4":
         petproject.modify(table)
     elif option == "5":
-        user.get_inputs(["How many cards would you like? "], "")
+        number_of_cards = petproject.get_number_practice_cards()
+        petproject.make_datetime_int(table)
     elif option == "0":
         sys.exit(0)
     else:

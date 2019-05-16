@@ -20,7 +20,7 @@ def choose():
     elif option == "5":
         number_of_cards = petproject.get_number_practice_cards()
         datetime_converted = petproject.make_datetime_int(table)
-        petproject.sort_practice_cards(datetime_converted)
+        petproject.sort_practice_cards(datetime_converted, number_of_cards)
     elif option == "0":
         sys.exit(0)
     else:

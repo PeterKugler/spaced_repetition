@@ -79,3 +79,16 @@ def modify(table):
             table.append(row)
     writer = export_file("english.csv", table)
     return table
+
+
+def get_number_practice_cards():
+    valid_number = False
+    while valid_number is False:
+        try:
+            number_to_practice = int(input("How many cars would you like to practice? "))
+            valid_number = True
+        except ValueError:
+            print("Please give a valid integer number!")
+    return number_to_practice
+
+

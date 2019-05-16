@@ -85,6 +85,8 @@ def get_number_practice_cards():
     while valid_number is False:
         try:
             number_to_practice = int(input("How many cars would you like to practice? "))
+            if number_to_practice > len(table):
+                print(f"Please give me a number between 1 and {len(table)}!")
             valid_number = True
         except ValueError:
             print("Please give a valid integer number!")
@@ -108,7 +110,10 @@ def make_datetime_int(table):
     return make_datetime
 
 
-def sort_practice_cards(table, number_of_cards):
-    table.sort(key=itemgetter(4, 3, 5))
-    table = table[:number_of_cards + 1]
-    return print(table)
+def sort_practice_cards(make_datetime, number_of_cards):
+    LAST_PRACTICED_DATE = 3
+    TOTAL_POINTS_ON_CARD = 5
+    LAST_PRACTICES_POINT = 4
+    make_datetime.sort(key=itemgetter(TOTAL_POINTS_ON_CARD, LAST_PRACTICED_DATE, LAST_PRACTICES_POINT))
+    make_datetime = make_datetime[:number_of_cards]
+    return make_datetime

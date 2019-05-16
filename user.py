@@ -1,5 +1,6 @@
 def make_table(table, title_list):
-    table = [title_list] + table
+    #table = [title_list] + table
+    table.join(title_list)
     return table
 
 
@@ -40,7 +41,7 @@ def len_of_columns(new_table):
         count += 1
     return longest_titles
 
-
+'''
 def print_table(table, title_list):
     table = make_table(table, title_list)
     new_table = transform_table(table)
@@ -75,6 +76,19 @@ def print_table(table, title_list):
     print("")
     print(last_line)
     #return table, title_list
+'''
+
+
+def print_table(table, title_list):
+    title_string = ""
+    for title in title_list:
+        title_string = title_string + " " + title
+
+    print(title_string)
+
+    for row in table:
+        row_details = "||---" + row[0] + "---||" + "||---" + row[1] + "---||" + "||---" + row[2] + "---||" + "||---" + row[3] + "---||" +"||---" + row[4] + "---||"
+        print(row_details)        
 
 
 def print_result(result, label):

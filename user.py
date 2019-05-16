@@ -111,3 +111,50 @@ def get_inputs(list_labels, title):
 
 def print_error_message(message):
     print('Error: ' + message)
+
+'''
+def print_table(table, title_list):
+    """
+    Prints table with data.
+
+    Example:
+        /-----------------------------------\
+        |   id   |      title     |  type   |
+        |--------|----------------|---------|
+        |   0    | Counter strike |    fps  |
+        |--------|----------------|---------|
+        |   1    |       fo       |    fps  |
+        \-----------------------------------/
+
+    Args:
+        table (list): list of lists - table to display
+        title_list (list): list containing table headers
+
+    Returns:
+        None: This function doesn't return anything it only prints to console.
+    """
+
+    # your goes code
+    max_lengths = [len(title) for title in title_list]
+    for row in table:
+        for enum, actual_data in enumerate(row):
+            if len(str(actual_data)) > max_lengths[enum]:
+                max_lengths[enum] = len(str(actual_data))
+
+    sum_of_max_lengths = 0
+    for length in max_lengths:
+        sum_of_max_lengths += length
+    separator_string = "|" + "|".join(["-"*length for length in max_lengths]) + "|"
+    
+    print(f"/{'-'*(sum_of_max_lengths+len(title_list)-1)}\\")
+    print(end="|")
+    for enum, title in enumerate(title_list):
+        print(title.center(max_lengths[enum]), end="|")
+    for row in table:
+        print(f"\n{separator_string}")
+        print(end="|")
+        for enum, actual_data in enumerate(row):
+            print(str(actual_data).center(max_lengths[enum]), end = "|")
+
+    print(f"\n\\{'-'*(sum_of_max_lengths+len(title_list)-1)}/")
+'''
